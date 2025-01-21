@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:40:43 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 19:48:24 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/21 20:42:43 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,29 @@ static long	ft_atol(const char *s)
 	return (res * sign);
 }
 
+static void	append_node(t_stack **stack, int num)
+{
+	t_stack	*node;
+	t_stack	*last_node;
+
+	if (!stack)
+		return ;
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return ;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = ft_lstlast(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
+
 void	ft_stack_init(t_stack **a, const char *argv[])
 {
 	long	num;
@@ -42,6 +65,12 @@ void	ft_stack_init(t_stack **a, const char *argv[])
 	while (argv[++i])
 	{
 		if (error_syntax(argv[i]))
-			
+			free_errors(a);
+		num = ft_atol(argv[i]);
+		if (num <= INT_MIN || num >= INT_MAX)
+			free_errors(a);
+		if (error_duplicate(*a, (int)num))
+			free_errors(a);
+		append_node(a, (int)num);
 	}
 }

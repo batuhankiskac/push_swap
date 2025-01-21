@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_add_back.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 20:14:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/20 20:31:14 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/01/21 18:33:07 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/01/21 18:37:52 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int main(int argc, char const *argv[])
+void	ft_add_back(t_stack **stack, t_stack *new_stack)
 {
-
-	return (0);
+	if (!stack)
+		return ;
+	if (!(*stack))
+		*stack = new_stack;
+	else
+		ft_lstlast((*stack)->next = new_stack);
 }

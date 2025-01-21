@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/20 20:30:46 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/21 18:34:06 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ typedef struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
+
+void	ft_add_back(t_stack **stack, t_stack *new_stack);
 
 #endif

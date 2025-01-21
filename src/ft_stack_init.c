@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:40:43 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 20:42:43 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/21 21:14:57 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	append_node(t_stack **stack, int num)
 	}
 	else
 	{
-		last_node = ft_lstlast(*stack);
+		last_node = find_last(*stack);
 		last_node->next = node;
 		node->prev = last_node;
 	}

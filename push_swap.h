@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 21:01:04 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/21 21:25:05 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }				t_stack;
 
+t_stack	*find_last(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
+bool	ft_check_sorted(t_stack *stack);
 void	ft_stack_init(t_stack **a, const char *argv[]);
 void	ft_sort_three(t_stack **a);
-bool	ft_check_sorted(t_stack *stack);
+int		stack_len(t_stack *stack);;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:42:00 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 18:50:07 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 19:17:33 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,26 @@ t_stack	*get_cheapest(t_stack *stack)
 		if (stack->cheapest)
 			return (stack);
 		stack = stack->next;
+	}
+}
+
+void	current_index(t_stack *stack)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!stack)
+		return ;
+	median = stack_len(stack) / 2;
+	while (stack)
+	{
+		stack->index = i;
+		if (i <= median)
+			stack->above_median = true;
+		else
+			stack->above_median = false;
+		stack = stack->next;
+		i++;
 	}
 }

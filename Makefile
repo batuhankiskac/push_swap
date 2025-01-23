@@ -6,13 +6,13 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/23 22:57:59 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/23 23:38:29 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 SRCS = main.c \
 	src/error_handle.c \
@@ -45,7 +45,7 @@ $(LIBFT):
 clean:
 	rm -f $(OBJS)
 	make clean -C ./libft
-	
+
 fclean: clean
 	rm -f $(NAME)
 	make fclean -C ./libft

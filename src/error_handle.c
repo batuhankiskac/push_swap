@@ -6,23 +6,26 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:28:21 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 17:01:02 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:48:56 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	error_syntax(char *str)
+bool	error_syntax(const char *str)
 {
-	if (*str == '-' || *str == '+')
-		*str++;
-	if (!(*str) || !(*str >= '0' && *str <= '9'))
+	int	i;
+
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!(str[i]) || !(str[i] >= '0' && str[i] <= '9'))
 		return (true);
-	while (*str)
+	while (str[i])
 	{
-		if (!(*str >= '0' && *str <= '9'))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (true);
-		*str++;
+		i++;
 	}
 	return (false);
 }

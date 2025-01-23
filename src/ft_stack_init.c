@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:40:43 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 14:32:41 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:48:13 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ static void	append_node(t_stack **stack, int num)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
+	node->next = NULL;
+	node->value = num;
+	node->cheapest = 0;
 	if (!(*stack))
 	{
 		*stack = node;

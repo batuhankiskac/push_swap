@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:14:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 14:32:57 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:42:06 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char const *argv[])
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
-		argv = ft_split(argv, ' ');
+		argv = (const char **)ft_split(argv[1], ' ');
 	ft_stack_init(&a, argv + 1);
 	if (!ft_check_sorted(a))
 	{

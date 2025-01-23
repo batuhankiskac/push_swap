@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:11:19 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 20:55:30 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:57:46 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,13 @@ t_stack	*find_min(t_stack *stack)
 		stack = stack->next;
 	}
 	return (min_node);
+}
+
+t_stack	*find_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }

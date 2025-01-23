@@ -6,13 +6,42 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:28:21 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 16:34:56 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 17:01:02 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+bool	error_syntax(char *str)
+{
+	if (*str == '-' || *str == '+')
+		*str++;
+	if (!(*str) || !(*str >= '0' && *str <= '9'))
+		return (true);
+	while (*str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (true);
+		*str++;
+	}
+	return (false);
+}
 
+bool	error_duplicate(t_stack *stack, int n)
+{
+	int	count;
+
+	count = 0;
+	while (stack)
+	{
+		if (stack->value == n)
+			count++;
+		if (count > 1)
+			return (true);
+		stack = stack->next;
+	}
+	return (false);
+}
 
 void	free_stack(t_stack **stack)
 {

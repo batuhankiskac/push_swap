@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 16:22:04 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:52:13 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_stack	*find_last(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
 bool	ft_check_sorted(t_stack *stack);
+bool	error_duplicate(t_stack *stack, int n);
+bool	error_syntax(char *str);
 void	ft_stack_init(t_stack **a, const char *argv[]);
 void	ft_sort_three(t_stack **a);
 void	sa(t_stack **stack_a, bool print);
@@ -48,6 +50,8 @@ void	rrb(t_stack **stack_b, bool print);
 void	rrr(t_stack **stack_a, t_stack **stack_b, bool print);
 void	pa(t_stack **stack_a, t_stack **stack_b, bool print);
 void	pb(t_stack **stack_b, t_stack **stack_a, bool print);
+void	free_errors(t_stack **stack);
+void	free_stack(t_stack **stack);
 int		stack_len(t_stack *stack);
 
 #endif

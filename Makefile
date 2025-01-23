@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/20 20:04:15 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/23 21:11:33 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS =
+SRCS = main.c src/error_handle.c src/ft_init_nodes_a.c src/ft_sort_stacks.c\
+	src/ft_stack_init.c src/reverse_rotate.c src/stack_utils_1.c src/stack_utils_3.c\
+	src/ft_check_sorted.c src/ft_init_nodes_b.c src/ft_sort_three.c src/push.c\
+	src/rotate.c src/stack_utils_2.c src/swap.c
 
 OBJS = $(SRCS:.c=.o)
 

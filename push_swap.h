@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 14:53:10 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 16:22:04 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void	rr(t_stack **stack_a, t_stack **stack_b, bool print);
 void	rra(t_stack **stack_a, bool print);
 void	rrb(t_stack **stack_b, bool print);
 void	rrr(t_stack **stack_a, t_stack **stack_b, bool print);
+void	pa(t_stack **stack_a, t_stack **stack_b, bool print);
+void	pb(t_stack **stack_b, t_stack **stack_a, bool print);
 int		stack_len(t_stack *stack);
 
 #endif

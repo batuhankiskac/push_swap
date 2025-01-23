@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:40:43 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 21:14:57 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:32:41 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 static long	ft_atol(const char *s)
 {
 	long	res;
-	int sign;
+	int		sign;
 
 	res = 0;
 	sign = 1;
-
 	while (*s == '0' || (*s >= 9 && *s <= 13))
 		s++;
 	if (*s == '-' || *s == '+')

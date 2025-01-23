@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:53:44 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 20:59:09 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:29:47 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_sort_three(t_stack **a)
 
 	biggest_node = find_max(&a);
 	if (biggest_node == *a)
-		ra(a, false);
+		ra(a, true);
 	else if (biggest_node == (*a)->next)
-		rra(a, false);
+		rra(a, true);
 	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
+		sa(a, true);
 }

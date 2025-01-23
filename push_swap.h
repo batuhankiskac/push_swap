@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/21 21:25:05 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 14:33:06 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ t_stack	*find_min(t_stack *stack);
 bool	ft_check_sorted(t_stack *stack);
 void	ft_stack_init(t_stack **a, const char *argv[]);
 void	ft_sort_three(t_stack **a);
-int		stack_len(t_stack *stack);;
+void	sa(t_stack **stack_a, bool print);
+void	sb(t_stack **stack_b, bool print);
+void	ss(t_stack **stack_a, t_stack **stack_b, bool print);
+int		stack_len(t_stack *stack);
 
 #endif

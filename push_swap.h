@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 20:02:39 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 20:43:16 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	free_errors(t_stack **stack);
 void	free_stack(t_stack **stack);
 void	prep_for_push(t_stack **stack, t_stack *node, char name);
 void	current_index(t_stack *stack);
+void	ft_init_nodes_a(t_stack *stack_a, t_stack *stack_b);
+void	ft_init_nodes_b(t_stack *stack_a, t_stack *stack_b);
 int		stack_len(t_stack *stack);
 
 #endif

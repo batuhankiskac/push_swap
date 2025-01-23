@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 19:40:43 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 22:48:13 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 23:24:18 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	ft_stack_init(t_stack **a, const char *argv[])
 	long	num;
 	int		i;
 
-	i = -1;
-	while (argv[++i])
+	i = 0;
+	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
 			free_errors(a);
@@ -74,5 +74,6 @@ void	ft_stack_init(t_stack **a, const char *argv[])
 		if (error_duplicate(*a, (int)num))
 			free_errors(a);
 		append_node(a, (int)num);
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:28:21 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/23 22:48:56 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/23 23:03:10 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void	free_stack(t_stack **stack)
 void	free_errors(t_stack **stack)
 {
 	free_stack(stack);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }

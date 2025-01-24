@@ -11,73 +11,79 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdbool.h"
 
-static int	ft_count_words(char const *s, char c)
+static int	count_words(char *s, char c)
 {
-	int	count;
+	int		count;
+	bool	inside_word;
 
 	count = 0;
 	while (*s)
 	{
+		inside_word = false;
 		while (*s == c)
-			s++;
-		if (*s)
+			++s;
+		while (*s != c && *s)
 		{
-			count++;
-			while (*s && *s != c)
+			if (!inside_word)
 			{
-				s++;
+				++count;
+				inside_word = true;
 			}
+			++s;
 		}
 	}
 	return (count);
 }
 
-static int	ft_word_len(char const *s, char c)
+static char	*get_next_word(char *s, char c)
 {
-	int	len;
+	static int	cursor = 0;
+	char		*next_word;
+	int			len;
+	int			i;
 
 	len = 0;
-	while (*s && *s != c)
-	{
-		len++;
-		s++;
-	}
-	return (len);
+	i = 0;
+	while (s[cursor] == c)
+		++cursor;
+	while ((s[cursor + len] != c) && s[cursor + len])
+		++len;
+	next_word = malloc((size_t)len * sizeof(char) + 1);
+	if (!next_word)
+		return (NULL);
+	while ((s[cursor] != c) && s[cursor])
+		next_word[i++] = s[cursor++];
+	next_word[i] = '\0';
+	return (next_word);
 }
 
-static void	*freeall(char **res, int i)
+char **split(char *s, char c)
 {
-	while (i > 0)
-		free(res[i--]);
-	free(res);
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
+	int		words_count;
+	char	**result_array;
 	int		i;
-	int		len;
 
 	i = 0;
-	res = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
-	if (res == NULL)
+	words_count = count_words(s, c);
+	if (!words_count)
+		exit(1);
+	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
+	if (!result_array)
 		return (NULL);
-	while (*s)
+	while (words_count-- >= 0)
 	{
-		while (*s == c)
-			s++;
-		if (*s)
+		if (i == 0)
 		{
-			len = ft_word_len(s, c);
-			res[i] = (char *)malloc((len + 1) * sizeof(char));
-			if (res[i] == NULL)
-				return (freeall(res, i));
-			ft_strlcpy(res[i++], s, len + 1);
-			s += len;
+			result_array[i] = malloc(sizeof(char));
+			if (!result_array[i])
+				return (NULL);
+			result_array[i++][0] = '\0';
+			continue ;
 		}
+		result_array[i++] = get_next_word(s, c);
 	}
-	res[i] = NULL;
-	return (res);
+	result_array[i] = NULL;
+	return (result_array);
 }

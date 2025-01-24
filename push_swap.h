@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:15:23 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:19:22 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }				t_stack;
 
-void	free_errors(t_stack **a);
-void	free_stack(t_stack **stack);
 int		error_duplicate(t_stack *a, int n);
 int		error_syntax(char *str_n);
+void	free_errors(t_stack **a);
+void	free_stack(t_stack **stack);
 void	pa(t_stack **a, t_stack **b, bool print);
 void	pb(t_stack **b, t_stack **a, bool print);
 void	sa(t_stack **a, bool print);
@@ -43,5 +43,8 @@ void	ss(t_stack **a, t_stack **b, bool print);
 void	ra(t_stack **a, bool print);
 void	rb(t_stack **b, bool print);
 void	rr(t_stack **a, t_stack **b, bool print);
-
+void	rra(t_stack **a, bool print);
+void	rrb(t_stack **b, bool print);
+void	rrr(t_stack **a, t_stack **b, bool print);
+void	sort_three(t_stack **a);
 #endif

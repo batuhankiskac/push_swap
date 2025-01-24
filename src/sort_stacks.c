@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 20:14:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:26:10 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/01/24 12:19:51 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/01/24 12:20:21 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	sort_stacks(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int	len_a;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (1);
-	else if (argc == 2)
-		argv = split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	len_a = stack_len(*a);
+	if (len_a-- > 3 && !stack_sorted(*a))
+		pb(b, a, false);
+	if (len_a-- > 3 && !stack_sorted(*a))
+		pb(b, a, false);
+	while (len_a-- > 3 && !stack_sorted(*a))
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		init_nodes_a(*a, *b);
+		move_a_to_b(a, b);
 	}
-	free_stack(&a);
-	return (0);
+	sort_three(a);
+	while (*b)
+	{
+		init_nodes_b(*a, *b);
+		move_b_to_a(a, b);
+	}
+	current_index(*a);
+	min_on_top(a);
 }

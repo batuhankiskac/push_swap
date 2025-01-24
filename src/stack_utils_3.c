@@ -6,11 +6,11 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:20:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:22:02 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:40:38 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {

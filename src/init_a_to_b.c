@@ -6,11 +6,11 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:30:54 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:31:48 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:40:22 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	set_target_a(t_stack *a, t_stack *b)
 {

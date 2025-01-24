@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 12:03:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/09 21:16:08 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:52:31 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_itoa(int n);
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *s, char c);
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);

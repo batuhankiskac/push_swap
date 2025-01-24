@@ -6,12 +6,12 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:05:26 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 20:05:58 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 20:15:22 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include "libft/libft.h"
 # include <stdlib.h>

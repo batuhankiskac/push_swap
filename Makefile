@@ -6,11 +6,12 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/24 18:20:32 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/24 18:27:01 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+BONUS_NAME = checker
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -57,19 +58,19 @@ $(NAME): $(OBJS)
 $(LIBFT):
 	make -C ./libft
 
+bonus: $(LIBFT) $(BONUS_NAME)
+
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS) # Hem zorunlu hem bonus .o dosyalarını sil
 	make clean -C ./libft
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUS_NAME) # Zorunlu ve bonus çalıştırılabilir dosyaları sil
 	make fclean -C ./libft
 
 re: fclean all
 
-bonus: $(BONUS_NAME)
-
-$(BONUS_NAME): $(BONUS_OBJS)
-	$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(BONUS_NAME)
-
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:38:31 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 21:29:21 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 21:53:15 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	process_commands(t_stack **a, t_stack **b)
 	line = get_next_line(0);
 	while (line)
 	{
+		if (line == NULL)
+		{
+			show_error();
+			break;
+		}
 		execute_command(a, b, line);
 		free(line);
 		line = get_next_line(0);
@@ -49,7 +54,10 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	a = init_and_validate(argc, argv);
 	if (!a)
+	{
 		show_error();
+		exit(EXIT_FAILURE);
+	}
 	process_commands(&a, &b);
 	free_stack(&a);
 	free_stack(&b);

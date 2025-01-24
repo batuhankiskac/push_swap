@@ -6,16 +6,19 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/24 20:41:02 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/24 21:33:17 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
 BONUS_NAME = checker
+
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS_1 = main.c \
+SRCS_1 = main.c
 
 SRCS_2 = src/push.c \
 	src/swap.c \
@@ -34,15 +37,17 @@ SRCS_2 = src/push.c \
 BONUS_SRCS = bonus/checker.c \
 	bonus/checker_utils.c
 
-OBJS_1 = $(SRCS:.c=.o)
-OBJS_2 = $(SRCS:.c=.o)
+OBJS_1 = $(SRCS_1:.c=.o)
+
+OBJS_2 = $(SRCS_2:.c=.o)
+
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 LIBFT = ./libft/libft.a
 
 all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS) $(OBJS_2)
+$(NAME): $(OBJS_1) $(OBJS_2)
 	$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
@@ -54,7 +59,7 @@ $(BONUS_NAME): $(BONUS_OBJS) $(OBJS_2)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(LIBFT) -o $(BONUS_NAME)
 
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS_1) $(OBJS_2) $(BONUS_OBJS)
 	make clean -C ./libft
 
 fclean: clean

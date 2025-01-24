@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:39:07 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 20:49:37 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 21:43:36 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,9 @@ void	execute_help(t_stack **a, t_stack **b, char *line)
 		rrr(a, b, 1);
 }
 
-void	execute_command(t_stack **a, t_stack **b, char *line)
+char	*execute_command(t_stack **a, t_stack **b, char *line)
 {
+	ft_printf("Executing command: %s\n", line);
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
 		sa(a, 1);
 	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')

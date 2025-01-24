@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 15:39:05 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 17:57:28 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	move_a_to_b(t_stack **a, t_stack **b);
 void	move_b_to_a(t_stack **a, t_stack **b);
 void	min_on_top(t_stack **a);
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
-void	init_stack_a(t_stack **a, char **argv);
+void	init_stack(t_stack **a, char **argv);
 void	current_index(t_stack *stack);
 void	init_nodes_a(t_stack *a, t_stack *b);
 void	init_nodes_b(t_stack *a, t_stack *b);

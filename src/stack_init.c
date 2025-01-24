@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:27:50 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:28:35 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 17:57:14 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	append_node(t_stack **stack, int n)
 	}
 }
 
-void	init_stack_a(t_stack **a, char **argv)
+void	init_stack(t_stack **a, char **argv)
 {
 	long	n;
 	int		i;

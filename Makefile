@@ -6,29 +6,29 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/23 23:38:29 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/24 12:37:18 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c \
-	src/error_handle.c \
-	src/ft_init_nodes_a.c \
-	src/ft_sort_stacks.c \
-	src/ft_stack_init.c \
-	src/reverse_rotate.c \
-	src/stack_utils_1.c \
-	src/stack_utils_3.c \
-	src/ft_check_sorted.c \
-	src/ft_init_nodes_b.c \
-	src/ft_sort_three.c \
-	src/push.c \
-	src/rotate.c \
-	src/stack_utils_2.c \
-	src/swap.c
+	src\push.c \
+	src\swap.c \
+	src\rotate.c \
+	src\reverse_rotate.c \
+	src\push.c \
+	src\error_handle.c \
+	src\sort_three.c \
+	src\sort_stacks.c \
+	src\init_a_to_b.c \
+	src\init_b_to_a.c \
+	src\stack_utils_1.c \
+	src\stack_utils_2.c \
+	src\stack_utils_3.c \
+	src\stack_init.c
 
 OBJS = $(SRCS:.c=.o)
 

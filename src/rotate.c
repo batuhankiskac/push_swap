@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:14:18 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:15:04 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 15:39:46 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	rotate(t_stack **stack)
 {
-	t_stack *last_node;
+	t_stack	*last_node;
 
 	if (!*stack || !(*stack)->next)
 		return ;

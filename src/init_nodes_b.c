@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_b_to_a.c                                      :+:      :+:    :+:   */
+/*   init_nodes_b.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:32:28 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:32:59 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/24 15:40:22 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	set_target_b(t_stack *a, t_stack *b)
 		current_a = a;
 		while (current_a)
 		{
-			if (current_a->value > b->value && current_a->value < best_match_index)
+			if (current_a->value > b->value
+				&& current_a->value < best_match_index)
 			{
 				best_match_index = current_a->value;
 				target_node = current_a;

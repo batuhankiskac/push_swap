@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/24 12:42:28 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/24 15:41:12 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,8 @@ SRCS = main.c \
 	src/error_handle.c \
 	src/sort_three.c \
 	src/sort_stacks.c \
-	src/init_a_to_b.c \
-	src/init_b_to_a.c \
+	src/init_nodes_a.c \
+	src/init_nodes_b.c \
 	src/stack_utils_1.c \
 	src/stack_utils_2.c \
 	src/stack_utils_3.c \

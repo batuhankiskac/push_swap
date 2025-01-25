@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:39:07 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 21:43:36 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/25 11:53:16 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,34 @@ void	show_error(void)
 void	execute_help(t_stack **a, t_stack **b, char *line)
 {
 	if (line[2] == 'a')
-		rra(a, 1);
+		rra(a, false);
 	else if (line[2] == 'b')
-		rrb(b, 1);
+		rrb(b, false);
 	else if (line[2] == 'r')
-		rrr(a, b, 1);
+		rrr(a, b, false);
 }
 
 char	*execute_command(t_stack **a, t_stack **b, char *line)
 {
 	ft_printf("Executing command: %s\n", line);
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
-		sa(a, 1);
+		sa(a, false);
 	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
-		sb(b, 1);
+		sb(b, false);
 	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
-		pa(a, b, 1);
+		pa(a, b, false);
 	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		pb(a, b, 1);
+		pb(a, b, false);
 	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
-		ra(a, 1);
+		ra(a, false);
 	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
-		rb(b, 1);
+		rb(b, false);
 	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
 		execute_help(a, b, line);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-		rr(a, b, 1);
+		rr(a, b, false);
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-		ss(a, b, 1);
+		ss(a, b, false);
 	else
 		show_error();
 	return (get_next_line(0));

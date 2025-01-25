@@ -6,7 +6,7 @@
 #    By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/20 20:00:51 by bkiskac           #+#    #+#              #
-#    Updated: 2025/01/24 21:33:17 by bkiskac          ###   ########.fr        #
+#    Updated: 2025/01/25 12:42:28 by bkiskac          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,8 +34,7 @@ SRCS_2 = src/push.c \
 	src/stack_utils_3.c \
 	src/stack_init.c
 
-BONUS_SRCS = bonus/checker.c \
-	bonus/checker_utils.c
+BONUS_SRCS = bonus/checker.c
 
 OBJS_1 = $(SRCS_1:.c=.o)
 

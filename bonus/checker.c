@@ -6,60 +6,82 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 20:38:31 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 21:53:15 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/01/25 12:41:53 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*init_and_validate(int argc, char *argv[])
+static int	read_operations(t_stack **stack_a, t_stack **stack_b, char *line)
 {
-	t_stack	*a;
-
-	a = NULL;
-	if (argc < 2)
-		return (NULL);
-	init_stack(&a, argv + 1);
-	return (a);
-}
-
-void	process_commands(t_stack **a, t_stack **b)
-{
-	char	*line;
-
-	line = get_next_line(0);
-	while (line)
-	{
-		if (line == NULL)
-		{
-			show_error();
-			break;
-		}
-		execute_command(a, b, line);
-		free(line);
-		line = get_next_line(0);
-	}
-	free(line);
-	if (stack_sorted(*a) && stack_len(*b) == 0)
-		ft_putstr_fd("OK\n", 1);
+	if (!ft_strncmp(line, "sa\n", 3))
+		sa(stack_a, false);
+	else if (!ft_strncmp(line, "sb\n", 3))
+		sb(stack_b, false);
+	else if (!ft_strncmp(line, "ss\n", 3))
+		ss(stack_a, stack_b, false);
+	else if (!ft_strncmp(line, "pa\n", 3))
+		pa(stack_a, stack_b, false);
+	else if (!ft_strncmp(line, "pb\n", 3))
+		pb(stack_b, stack_a, false);
+	else if (!ft_strncmp(line, "ra\n", 3))
+		ra(stack_a, false);
+	else if (!ft_strncmp(line, "rb\n", 3))
+		rb(stack_b, false);
+	else if (!ft_strncmp(line, "rr\n", 3))
+		rr(stack_a, stack_b, false);
+	else if (!ft_strncmp(line, "rra\n", 4))
+		rra(stack_a, false);
+	else if (!ft_strncmp(line, "rrb\n", 4))
+		rrb(stack_b, false);
+	else if (!ft_strncmp(line, "rrr\n", 4))
+		rrr(stack_a, stack_b, false);
 	else
-		ft_putstr_fd("KO\n", 1);
+		return (0);
+	return (1);
 }
 
-int	main(int argc, char *argv[])
+static void	handle_error(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*a;
-	t_stack	*b;
+	if (*stack_a)
+		free_stack(stack_a);
+	if (*stack_b)
+		free_stack(stack_b);
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-	b = NULL;
-	a = init_and_validate(argc, argv);
-	if (!a)
+int	main(int argc, char **argv)
+{
+	t_stack *stack_a;
+	t_stack *stack_b;
+	char    *line;
+
+	if (argc < 2)
+		return (0);
+
+	stack_b = NULL;
+	stack_a = ft_stack_init(argc, argv);
+	while (1)
 	{
-		show_error();
-		exit(EXIT_FAILURE);
+		line = get_next_line(0);
+		if (!line)
+			break;
+		if (!read_operations(&stack_a, &stack_b, line))
+		{
+			free(line);
+			handle_error(&stack_a, &stack_b);
+		}
+		free(line);
 	}
-	process_commands(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
+	if (ft_check_sorted(stack_a) && !stack_b)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	if (stack_a)
+		free_stack(&stack_a);
+	if (stack_b)
+		free_stack(&stack_b);
 	return (0);
 }
+

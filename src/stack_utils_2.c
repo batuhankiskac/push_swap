@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:26:42 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:30:26 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:17:42 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,14 @@ void	current_index(t_stack *stack)
 		stack = stack->next;
 		++i;
 	}
+}
+
+void	ft_free_split(char **array)
+{
+	int	i;
+
+	i = -1;
+	while (array[++i])
+		free(array[i]);
+	free(array);
 }

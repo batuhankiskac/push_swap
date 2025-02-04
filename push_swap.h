@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/25 12:42:10 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:17:53 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ bool	stack_sorted(t_stack *stack);
 int		error_duplicate(t_stack *a, int n);
 int		error_syntax(char *str_n);
 int		stack_len(t_stack *stack);
+void	ft_free_split(char **array);
 void	free_errors(t_stack **a);
 void	free_stack(t_stack **stack);
 void	pa(t_stack **a, t_stack **b, bool print);

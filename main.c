@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:14:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/28 19:22:23 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/04 20:17:37 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(int argc, char **argv)
 		else
 			sort_stacks(&a, &b);
 	}
+	if (argc == 2)
+		ft_free_split(argv);
 	free_stack(&a);
 	return (0);
 }

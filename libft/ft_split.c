@@ -11,79 +11,73 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdbool.h"
 
-static int	count_words(char *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
-	int		count;
-	bool	inside_word;
+	int	count;
 
 	count = 0;
 	while (*s)
 	{
-		inside_word = false;
 		while (*s == c)
-			++s;
-		while (*s != c && *s)
+			s++;
+		if (*s)
 		{
-			if (!inside_word)
+			count++;
+			while (*s && *s != c)
 			{
-				++count;
-				inside_word = true;
+				s++;
 			}
-			++s;
 		}
 	}
 	return (count);
 }
 
-static char	*get_next_word(char *s, char c)
+static int	ft_word_len(char const *s, char c)
 {
-	static int	cursor = 0;
-	char		*next_word;
-	int			len;
-	int			i;
+	int	len;
 
 	len = 0;
-	i = 0;
-	while (s[cursor] == c)
-		++cursor;
-	while ((s[cursor + len] != c) && s[cursor + len])
-		++len;
-	next_word = malloc((size_t)len * sizeof(char) + 1);
-	if (!next_word)
-		return (NULL);
-	while ((s[cursor] != c) && s[cursor])
-		next_word[i++] = s[cursor++];
-	next_word[i] = '\0';
-	return (next_word);
+	while (*s && *s != c)
+	{
+		len++;
+		s++;
+	}
+	return (len);
+}
+
+static void	*freeall(char **res, int i)
+{
+	while (i > 0)
+		free(res[i--]);
+	free(res);
+	return (NULL);
 }
 
 char	**ft_split(char *s, char c)
 {
-	int		words_count;
-	char	**result_array;
+	char	**res;
 	int		i;
+	int		len;
 
 	i = 0;
-	words_count = count_words(s, c);
-	if (!words_count)
-		exit(1);
-	result_array = malloc(sizeof(char *) * (size_t)(words_count + 2));
-	if (!result_array)
+	res = (char **)malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	if (res == NULL)
 		return (NULL);
-	while (words_count-- >= 0)
+	while (*s)
 	{
-		if (i == 0)
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			result_array[i] = malloc(sizeof(char));
-			if (!result_array[i])
-				return (NULL);
-			result_array[i++][0] = '\0';
-			continue ;
+			len = ft_word_len(s, c);
+			res[i] = (char *)malloc((len + 1) * sizeof(char));
+			if (res[i] == NULL)
+				return (freeall(res, i));
+			ft_strlcpy(res[i++], s, len + 1);
+			s += len;
 		}
-		result_array[i++] = get_next_word(s, c);
 	}
-	result_array[i] = NULL;
-	return (result_array);
+	res[i] = NULL;
+	return (res);
 }

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:08:33 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/04 21:33:29 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:04:31 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,17 @@ void	free_stack(t_stack **stack)
 	while (current)
 	{
 		tmp = current->next;
-		current->value = 0;
 		free(current);
 		current = tmp;
 	}
 	*stack = NULL;
 }
 
-void	free_errors(t_stack **a)
+void	free_errors(t_stack **a, char *argv[], int argc)
 {
 	free_stack(a);
+	if (argc == 2)
+		ft_free_split(argv);
 	ft_putstr_fd("Error\n", 2);
-	exit(1);
+	exit(EXIT_FAILURE);
 }

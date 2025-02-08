@@ -6,13 +6,13 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:14:39 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/04 20:26:23 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:01:32 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	t_stack	*a;
 	t_stack	*b;
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		return (1);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	init_stack(&a, argv + 1);
+	init_stack(&a, argv + 1, argc);
 	if (!stack_sorted(a))
 	{
 		if (stack_len(a) == 2)

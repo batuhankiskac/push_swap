@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/04 21:33:35 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/08 16:01:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		error_duplicate(t_stack *a, int n);
 int		error_syntax(char *str_n);
 int		stack_len(t_stack *stack);
 void	ft_free_split(char **array);
-void	free_errors(t_stack **a);
+void	free_errors(t_stack **a, char *argv[], int argc);
 void	free_stack(t_stack **stack);
 void	pa(t_stack **a, t_stack **b, bool print);
 void	pb(t_stack **b, t_stack **a, bool print);
@@ -61,7 +61,7 @@ void	move_a_to_b(t_stack **a, t_stack **b);
 void	move_b_to_a(t_stack **a, t_stack **b);
 void	min_on_top(t_stack **a);
 void	prep_for_push(t_stack **stack, t_stack *top_node, char stack_name);
-void	init_stack(t_stack **a, char **argv);
+void	init_stack(t_stack **a, char *argv[], int argc);
 void	current_index(t_stack *stack);
 void	init_nodes_a(t_stack *a, t_stack *b);
 void	init_nodes_b(t_stack *a, t_stack *b);

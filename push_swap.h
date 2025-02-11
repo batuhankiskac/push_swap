@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/10 21:58:02 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 11:47:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ void	init_stack(t_stack **a, char *argv[], int argc);
 void	current_index(t_stack *stack);
 void	init_nodes_a(t_stack *a, t_stack *b);
 void	init_nodes_b(t_stack *a, t_stack *b);
+void	handle_sort(t_stack **a, t_stack **b);
 
 #endif

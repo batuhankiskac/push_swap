@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 12:26:42 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/02/04 20:17:42 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/02/11 11:47:13 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,14 @@ void	ft_free_split(char **array)
 	while (array[++i])
 		free(array[i]);
 	free(array);
+}
+
+void	handle_sort(t_stack **a, t_stack **b)
+{
+	if (stack_len(*a) == 2)
+		sa(a, false);
+	else if (stack_len(*a) == 3)
+		sort_three(a);
+	else
+		sort_stacks(a, b);
 }

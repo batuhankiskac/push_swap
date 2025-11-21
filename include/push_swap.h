@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 12:18:12 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/01/24 12:18:52 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/02/11 11:47:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	sort_three(t_stack **a)
-{
-	t_stack	*biggest_node;
+# include "libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
 
-	biggest_node = find_max(*a);
-	if (biggest_node == *a)
-		ra(a, false);
-	else if ((*a)->next == biggest_node)
-		rra(a, false);
-	if ((*a)->value > (*a)->next->value)
-		sa(a, false);
-}
+#endif

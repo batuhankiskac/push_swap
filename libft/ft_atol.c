@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 12:12:50 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/11/30 12:04:05 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/11/30 12:24:21 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdbool.h>
 
-# define ERROR -1
+#include "libft.h"
 
-typedef struct s_stack {
-    int             value;
-    int             index;
-    struct s_stack  *prev;
-    struct s_stack  *next;
-}                   t_stack;
+long	ft_atol(const char *str)
+{
+	int		i;
+	long	sign;
+	long	result;
 
-#endif
+	i = 0;
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}

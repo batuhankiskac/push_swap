@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 12:12:50 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/11/30 12:07:55 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/11/30 12:26:37 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdbool.h>
+int main(int argc, char const *argv[])
+{
+	t_stack	*a;
+	t_stack	*b;
 
-# define ERROR -1
-
-typedef struct s_stack {
-    int             value;
-    int             index;
-    struct s_stack  *prev;
-    struct s_stack  *next;
-}                   t_stack;
-
-#endif
+	a = NULL;
+	b = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+		return (ERROR);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	else
+		argv = argv + 1;
+	stack_init(a);
+	return (0);
+}

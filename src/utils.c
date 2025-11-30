@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 12:07:55 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 19:38:14 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/11/30 19:21:21 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/11/30 19:24:29 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char const *argv[])
+void	free_stack(t_stack **stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	t_stack	*current;
+	t_stack	*temp;
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (ERROR);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	else
-		argv = argv + 1;
-	if (stack_init(&a, argv) == ERROR)
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		free_stack(a);
-		ft_putstr_fd("Error\n", 2);
-		return (ERROR);
+		temp = current->next;
+		free(current);
+		current = temp;
 	}
-	return (0);
+	*stack = NULL;
 }

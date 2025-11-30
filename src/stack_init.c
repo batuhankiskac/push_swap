@@ -6,8 +6,13 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 12:27:06 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 12:27:19 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/11/30 19:34:59 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	stack_init(t_stack **stack, char *argv[])
+{
+
+}

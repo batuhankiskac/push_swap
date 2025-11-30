@@ -1,47 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 12:33:16 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 19:15:34 by bkiskac          ###   ########.fr       */
+/*   Created: 2025/11/30 19:06:59 by bkiskac           #+#    #+#             */
+/*   Updated: 2025/11/30 19:09:42 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*last_node;
+	t_stack	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = *stack;
-	while (last_node->next)
-		last_node = last_node->next;
-	(*stack)->prev = last_node;
-	*stack = (*stack)->next;
-	(*stack)->prev = NULL;
-	last_node->next->next = NULL;
+	last = *stack;
+	while (last->next)
+		last = last->next;
+	last->prev->next = NULL;
+	last->next = *stack;
+	last->prev = NULL;
+	(*stack)->prev = last;
+	*stack = last;
 }
 
-void	ra(t_stack **a)
+void	rra(t_stack **a)
 {
-	rotate(a);
-	ft_putstr_fd("ra\n", 1);
+	reverse_rotate(a);
+	ft_putstr_fd("rra\n", 1);
 }
 
-void	rb(t_stack **b)
+void	rrb(t_stack **b)
 {
-	rotate(b);
-	ft_putstr_fd("rb\n", 1);
+	reverse_rotate(b);
+	ft_putstr_fd("rrb\n", 1);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
-	rotate(a);
-	rotate(b);
-	ft_putstr_fd("rr\n", 1);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	ft_putstr_fd("rrr\n", 1);
 }

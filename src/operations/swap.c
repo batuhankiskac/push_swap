@@ -6,13 +6,13 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 12:33:18 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 12:49:00 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/11/30 18:29:10 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void swap(t_stack **head)
+static void	swap(t_stack **head)
 {
 	t_stack	*temp;
 

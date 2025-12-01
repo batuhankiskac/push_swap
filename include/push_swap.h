@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 19:35:18 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/11/30 20:14:01 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <stdbool.h>
 
 # define ERROR -1
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 typedef struct s_stack
 {

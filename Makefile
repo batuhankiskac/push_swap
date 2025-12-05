@@ -4,7 +4,16 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I include
 
-SRCS = 
+SRCS = src/operations/swap.c \
+	   src/operations/push.c \
+	   src/operations/rotate.c \
+	   src/operations/reverse_rotate.c \
+	   src/base_sort.c \
+	   src/utils.c \
+	   src/main.c \
+	   src/stack_init.c \
+	   src/stack_utils.c \
+	   src/quicksort.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -27,5 +36,7 @@ fclean: clean
 	make fclean -C ./libft
 
 re: fclean all
+
+main: all clean
 
 .PHONY: all clean fclean re

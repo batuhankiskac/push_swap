@@ -15,16 +15,17 @@
 static void	rotate(t_stack **stack)
 {
 	t_stack	*last_node;
+	t_stack	*first_node;
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last_node = *stack;
-	while (last_node->next)
-		last_node = last_node->next;
-	(*stack)->prev = last_node;
-	*stack = (*stack)->next;
+	first_node = *stack;
+	last_node = get_last_node(*stack);
+	*stack = first_node->next;
 	(*stack)->prev = NULL;
-	last_node->next->next = NULL;
+	last_node->next = first_node;
+	first_node->prev = last_node;
+	first_node->next = NULL;
 }
 
 void	ra(t_stack **a)

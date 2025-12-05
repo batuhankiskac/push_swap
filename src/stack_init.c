@@ -78,9 +78,9 @@ int	stack_init(t_stack **stack, char *argv[])
 			return (ERROR);
 		num = ft_atol(argv[i]);
 		if (num > INT_MAX || num < INT_MIN)
-			return (1);
-		if (error_duplicate(*stack, (int)num))
-			return (1);
+			return (ERROR);
+		if (is_contain(*stack, (int)num))
+			return (ERROR);
 		new_node(stack, (int)num);
 	}
 	return (0);

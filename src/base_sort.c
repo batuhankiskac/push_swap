@@ -49,7 +49,7 @@ void	base_sort(t_stack **stack, int len)
 {
 	if (len == 2)
 	{
-		if ((*stack)->value > (*stack)->value)
+		if ((*stack)->value > (*stack)->next->value)
 			sa(stack);
 	}
 	else if (len == 3)

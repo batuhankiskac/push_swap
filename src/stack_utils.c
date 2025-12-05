@@ -64,7 +64,7 @@ int	get_pivot(t_stack *stack, int len)
 	{
 		if (stack->value < min)
 			min = stack->value;
-		if (stack->value < max)
+		if (stack->value > max)
 			max = stack->value;
 		stack = stack->next;
 	}

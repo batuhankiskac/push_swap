@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 18:44:09 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/01 20:19:13 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/05 21:21:37 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,26 +47,4 @@ int	is_sorted(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-int	get_pivot(t_stack *stack, int len)
-{
-	int	min;
-	int	max;
-	int	i;
-
-	if (len <= 0 || !stack)
-		return (0);
-	min = stack->value;
-	max = stack->value;
-	i = -1;
-	while (++i < len && stack)
-	{
-		if (stack->value < min)
-			min = stack->value;
-		if (stack->value > max)
-			max = stack->value;
-		stack = stack->next;
-	}
-	return ((min + max) / 2);
 }

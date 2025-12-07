@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/05 21:21:18 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 11:14:42 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+	int				push_cost;
+	int				current_pos;
+	int				cheapest;
+	int				above_median;
+	struct s_stack	*target;
 	struct s_stack	*prev;
 	struct s_stack	*next;
 }					t_stack;
@@ -33,6 +38,9 @@ t_stack	*get_last_node(t_stack *stack);
 int		stack_init(t_stack **stack, char *argv[]);
 int		stack_len(t_stack *stack);
 int		is_sorted(t_stack *stack);
+void	set_median_and_pos(t_stack *stack);
+void	planner_a(t_stack *a, t_stack *b);
+void	planner_b(t_stack *a, t_stack *b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
 void	ra(t_stack **a);

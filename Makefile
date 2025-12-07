@@ -8,6 +8,10 @@ SRCS = src/operations/swap.c \
 	   src/operations/push.c \
 	   src/operations/rotate.c \
 	   src/operations/reverse_rotate.c \
+	   src/execute_push.c \
+	   src/planner_a.c \
+	   src/planner_b.c \
+	   src/greedysort.c \
 	   src/utils.c \
 	   src/main.c \
 	   src/stack_init.c \

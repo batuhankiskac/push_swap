@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 12:07:55 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 06:57:57 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:03:30 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char *argv[])
 		return (ERROR);
 	}
 	if (!is_sorted(a))
-		// quicksort_a(&a, &b, stack_len(a));
+		greedysort(&a, &b);
 	free_stack(&a);
 	if (argc == 2)
 		free_all(argv);

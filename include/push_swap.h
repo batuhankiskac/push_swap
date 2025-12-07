@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 11:14:42 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:02:44 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,17 @@ typedef struct s_stack
 }					t_stack;
 
 t_stack	*get_last_node(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
+t_stack	*find_min(t_stack *stack);
 int		stack_init(t_stack **stack, char *argv[]);
 int		stack_len(t_stack *stack);
 int		is_sorted(t_stack *stack);
 void	set_median_and_pos(t_stack *stack);
 void	planner_a(t_stack *a, t_stack *b);
 void	planner_b(t_stack *a, t_stack *b);
+void	execute_push(t_stack **a, t_stack **b);
+void	greedysort(t_stack **a, t_stack **b);
+void	finish_rotation(t_stack **stack, t_stack *top, char stack_name);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **b, t_stack **a);
 void	ra(t_stack **a);

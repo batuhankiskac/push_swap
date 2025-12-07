@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 07:19:46 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 11:13:31 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:17:18 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	set_median_and_pos(t_stack *stack)
 {
 	int	median;
-	int i;
+	int	i;
 
 	if (!stack)
 		return ;
@@ -44,7 +44,7 @@ static void	find_target_a(t_stack *a, t_stack *b)
 		best_match = LONG_MIN;
 		while (i_b)
 		{
-			if ((i_b->value > a->value) && (i_b->value > best_match))
+			if ((i_b->value < a->value) && (i_b->value > best_match))
 			{
 				best_match = i_b->value;
 				target = i_b;
@@ -72,9 +72,16 @@ static void	calculate_push_cost(t_stack *a, t_stack *b)
 		if (!(a->above_median))
 			a->push_cost = len_a - (a->current_pos);
 		if (a->target->above_median)
-			a->push_cost += a->target->current_pos;
+			a->target->push_cost = a->target->current_pos;
 		else
-			a->push_cost += len_b - (a->target->current_pos);
+			a->target->push_cost = len_b - (a->target->current_pos);
+		if (a->above_median == a->target->above_median)
+		{
+			if (a->push_cost < a->target->push_cost)
+				a->push_cost = a->target->push_cost;
+		}
+		else
+			a->push_cost += a->target->push_cost;
 		a = a->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 19:21:21 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/05 21:21:43 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 17:26:53 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ void	free_all(char **str)
 	}
 	if (str != NULL)
 		free(str);
+}
+
+int	print_error(int error_code)
+{
+	ft_putstr_fd("Error\n", 2);
+	return (error_code);
 }

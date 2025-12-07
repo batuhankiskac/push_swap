@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 13:50:50 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 17:27:09 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ t_stack	*find_min(t_stack *stack);
 int		stack_init(t_stack **stack, char *argv[]);
 int		stack_len(t_stack *stack);
 int		is_sorted(t_stack *stack);
+int		print_error(int error_code);
 void	set_median_and_pos(t_stack *stack);
 void	planner_a(t_stack *a, t_stack *b);
 void	planner_b(t_stack *a, t_stack *b);

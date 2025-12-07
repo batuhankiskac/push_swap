@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 19:06:59 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 19:09:42 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:50:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ static void	reverse_rotate(t_stack **stack)
 	*stack = last;
 }
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int print)
 {
 	reverse_rotate(a);
-	ft_putstr_fd("rra\n", 1);
+	if (print)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int print)
 {
 	reverse_rotate(b);
-	ft_putstr_fd("rrb\n", 1);
+	if (print)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int print)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	ft_putstr_fd("rrr\n", 1);
+	if (print)
+		ft_putstr_fd("rrr\n", 1);
 }

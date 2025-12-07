@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 12:33:18 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/05 20:44:47 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:50:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ static void	swap(t_stack **head)
 	temp->prev = *head;
 }
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int print)
 {
 	swap(a);
-	ft_putstr_fd("sa\n", 1);
+	if (print)
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int print)
 {
 	swap(b);
-	ft_putstr_fd("sb\n", 1);
+	if (print)
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack **a, t_stack **b, int print)
 {
 	swap(a);
 	swap(b);
-	ft_putstr_fd("ss\n", 1);
+	if (print)
+		ft_putstr_fd("ss\n", 1);
 }

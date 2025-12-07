@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 11:39:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 13:02:23 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:55:15 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@ void	finish_rotation(t_stack **stack, t_stack *top, char stack_name)
 		if (stack_name == 'a')
 		{
 			if (top->above_median)
-				ra(stack);
+				ra(stack, 1);
 			else
-				rra(stack);
+				rra(stack, 1);
 		}
 		else if (stack_name == 'b')
 		{
 			if (top->above_median)
-				rb(stack);
+				rb(stack, 1);
 			else
-				rrb(stack);
+				rrb(stack, 1);
 		}
 	}
 }
 
 static void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest
-	, void (*f)(t_stack **, t_stack **))
+	, void (*f)(t_stack **, t_stack **, int))
 {
 	while (*b != cheapest->target && *a != cheapest)
-		f(a, b);
+		f(a, b, 1);
 	set_median_and_pos(*a);
 	set_median_and_pos(*b);
 }
@@ -58,5 +58,5 @@ void	execute_push(t_stack **a, t_stack **b)
 		rotate_both(a, b, push_node, rrr);
 	finish_rotation(a, push_node, 'a');
 	finish_rotation(b, push_node->target, 'b');
-	pb(b, a);
+	pb(b, a, 1);
 }

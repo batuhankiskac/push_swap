@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 13:02:44 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:50:50 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,17 @@ void	planner_b(t_stack *a, t_stack *b);
 void	execute_push(t_stack **a, t_stack **b);
 void	greedysort(t_stack **a, t_stack **b);
 void	finish_rotation(t_stack **stack, t_stack *top, char stack_name);
-void	pa(t_stack **a, t_stack **b);
-void	pb(t_stack **b, t_stack **a);
-void	ra(t_stack **a);
-void	rb(t_stack **b);
-void	rr(t_stack **a, t_stack **b);
-void	rra(t_stack **a);
-void	rrb(t_stack **b);
-void	rrr(t_stack **a, t_stack **b);
-void	sa(t_stack **a);
-void	sb(t_stack **b);
-void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b, int print);
+void	pb(t_stack **b, t_stack **a, int print);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b, int print);
+void	rra(t_stack **a, int print);
+void	rrb(t_stack **b, int print);
+void	rrr(t_stack **a, t_stack **b, int print);
+void	sa(t_stack **a, int print);
+void	sb(t_stack **b, int print);
+void	ss(t_stack **a, t_stack **b, int print);
 void	free_stack(t_stack **stack);
 void	free_all(char **str);
 

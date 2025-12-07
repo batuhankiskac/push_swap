@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 12:33:14 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/11/30 19:15:27 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/07 13:52:24 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,16 @@ static void	push(t_stack **dest, t_stack **src)
 	}
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int print)
 {
 	push(a, b);
-	ft_putstr_fd("pa\n", 1);
+	if (print)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_stack **b, t_stack **a)
+void	pb(t_stack **b, t_stack **a, int print)
 {
 	push(b, a);
-	ft_putstr_fd("pb\n", 1);
+	if (print)
+		ft_putstr_fd("pb\n", 1);
 }

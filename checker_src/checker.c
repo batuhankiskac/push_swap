@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 13:56:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 17:36:06 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/08 18:29:46 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,27 @@ int	main(int argc, char *argv[])
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		return (ERROR);
-	else if (argc == 2)
+	if (argc == 1)
+		return (0);
+	if (argc == 2 && !argv[1][0])
+		return (handle_error(NULL, NULL, ERROR));
+	if (argc == 2)
+	{
 		argv = ft_split(argv[1], ' ');
+		if (!argv || !argv[0])
+		{
+			free_all(argv);
+			return (handle_error(NULL, NULL, ERROR));
+		}
+	}
 	else
 		argv = argv + 1;
 	if (stack_init(&a, argv) == ERROR)
+	{
+		if (argc == 2)
+			free_all(argv);
 		return (handle_error(&a, NULL, ERROR));
+	}
 	if (read_and_execute(&a, &b))
 		return (handle_error(&a, NULL, ERROR));
 	if (is_sorted(a) && stack_len(b) == 0)
@@ -92,6 +105,8 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("KO\n", 1);
 	free_stack(&a);
 	free_stack(&b);
+	if (argc == 2)
+		free_all(argv);
 	return (0);
 }
 

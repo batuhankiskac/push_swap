@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 13:56:36 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/08 18:29:46 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/08 18:59:35 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,14 @@ static int	read_and_execute(t_stack **a, t_stack **b)
 	return (0);
 }
 
+static void	print_result(t_stack *a, t_stack *b)
+{
+	if (is_sorted(a) && stack_len(b) == 0)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
+}
+
 int	main(int argc, char *argv[])
 {
 	t_stack	*a;
@@ -78,35 +86,19 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	if (argc == 2 && !argv[1][0])
+	argv = parse_args(argc, argv);
+	if (!argv)
 		return (handle_error(NULL, NULL, ERROR));
-	if (argc == 2)
-	{
-		argv = ft_split(argv[1], ' ');
-		if (!argv || !argv[0])
-		{
-			free_all(argv);
-			return (handle_error(NULL, NULL, ERROR));
-		}
-	}
-	else
-		argv = argv + 1;
-	if (stack_init(&a, argv) == ERROR)
+	if (stack_init(&a, argv) == ERROR || read_and_execute(&a, &b))
 	{
 		if (argc == 2)
 			free_all(argv);
-		return (handle_error(&a, NULL, ERROR));
+		return (handle_error(&a, &b, ERROR));
 	}
-	if (read_and_execute(&a, &b))
-		return (handle_error(&a, NULL, ERROR));
-	if (is_sorted(a) && stack_len(b) == 0)
-		ft_putstr_fd("OK\n", 1);
-	else
-		ft_putstr_fd("KO\n", 1);
+	print_result(a, b);
 	free_stack(&a);
 	free_stack(&b);
 	if (argc == 2)
 		free_all(argv);
 	return (0);
 }
-

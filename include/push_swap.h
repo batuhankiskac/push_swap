@@ -6,7 +6,7 @@
 /*   By: bkiskac <bkiskac@student.42istanbul.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:15:03 by bkiskac           #+#    #+#             */
-/*   Updated: 2025/12/07 17:27:09 by bkiskac          ###   ########.fr       */
+/*   Updated: 2025/12/08 18:53:29 by bkiskac          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_stack
 t_stack	*get_last_node(t_stack *stack);
 t_stack	*find_max(t_stack *stack);
 t_stack	*find_min(t_stack *stack);
+char	**parse_args(int argc, char *argv[]);
 int		stack_init(t_stack **stack, char *argv[]);
 int		stack_len(t_stack *stack);
 int		is_sorted(t_stack *stack);

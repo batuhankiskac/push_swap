@@ -69,6 +69,7 @@ static char	*new_line(char *line, char c)
 static char	*next_line(int fd, char *line, char c)
 {
 	char	*buffer;
+	char	*temp;
 	int		i;
 
 	i = 1;
@@ -85,7 +86,9 @@ static char	*next_line(int fd, char *line, char c)
 			return (NULL);
 		}
 		buffer[i] = '\0';
+		temp = line;
 		line = ft_strjoin(line, buffer);
+		free(temp);
 	}
 	free(buffer);
 	return (line);

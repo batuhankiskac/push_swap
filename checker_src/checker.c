@@ -25,27 +25,27 @@ static int	handle_error(t_stack **a, t_stack **b, int error)
 static int	do_command(t_stack **a, t_stack **b, char *cmd)
 {
 	if (!ft_strcmp(cmd, "pa\n"))
-		pa(a, b, false);
+		pa(a, b, 0);
 	else if (!ft_strcmp(cmd, "pb\n"))
-		pb(b, a, false);
+		pb(b, a, 0);
 	else if (!ft_strcmp(cmd, "sa\n"))
-		sa(a, false);
+		sa(a, 0);
 	else if (!ft_strcmp(cmd, "sb\n"))
-		sb(b, false);
+		sb(b, 0);
 	else if (!ft_strcmp(cmd, "ss\n"))
-		ss(a, b, false);
+		ss(a, b, 0);
 	else if (!ft_strcmp(cmd, "ra\n"))
-		ra(a, false);
+		ra(a, 0);
 	else if (!ft_strcmp(cmd, "rb\n"))
-		rb(b, false);
+		rb(b, 0);
 	else if (!ft_strcmp(cmd, "rr\n"))
-		rr(a, b, false);
+		rr(a, b, 0);
 	else if (!ft_strcmp(cmd, "rra\n"))
-		rra(a, false);
+		rra(a, 0);
 	else if (!ft_strcmp(cmd, "rrb\n"))
-		rrb(b, false);
+		rrb(b, 0);
 	else if (!ft_strcmp(cmd, "rrr\n"))
-		rrr(a, b, false);
+		rrr(a, b, 0);
 	else
 		return (1);
 	return (0);

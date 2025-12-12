@@ -27,15 +27,13 @@ static void	new_node(t_stack **stack, int num)
 	node->cheapest = 0;
 	node->push_cost = 0;
 	node->target = NULL;
-	if (*stack == NULL)
+	last = get_last_node(*stack);
+	if (last == NULL)
 	{
 		*stack = node;
 		node->prev = NULL;
 		return ;
 	}
-	last = *stack;
-	while (last->next)
-		last = last->next;
 	last->next = node;
 	node->prev = last;
 }

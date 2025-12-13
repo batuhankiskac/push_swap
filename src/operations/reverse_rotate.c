@@ -18,14 +18,12 @@ static void	reverse_rotate(t_stack **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->prev->next = NULL;
+	last = get_last_node(*stack);
+	last->prev->next = NULL; 
 	last->next = *stack;
-	last->prev = NULL;
 	(*stack)->prev = last;
 	*stack = last;
+	last->prev = NULL;
 }
 
 void	rra(t_stack **a, int print)

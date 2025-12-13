@@ -22,18 +22,15 @@ static void	push(t_stack **dest, t_stack **src)
 	*src = (*src)->next;
 	if (*src)
 		(*src)->prev = NULL;
-	push->prev = NULL;
 	if (!(*dest))
 	{
 		*dest = push;
 		push->next = NULL;
+		return ;
 	}
-	else
-	{
-		push->next = *dest;
-		(*dest)->prev = push;
-		*dest = push;
-	}
+	push->next = *dest;
+	(*dest)->prev = push;
+	*dest = push;
 }
 
 void	pa(t_stack **a, t_stack **b, int print)

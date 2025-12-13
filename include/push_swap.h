@@ -16,7 +16,6 @@
 # include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdbool.h>
 # include <limits.h>
 
 # define ERROR -1

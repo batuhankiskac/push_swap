@@ -103,7 +103,7 @@ static void	mark_cheapest_node(t_stack *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_node->cheapest = 1;
 }
 
 void	planner_a(t_stack *a, t_stack *b)
